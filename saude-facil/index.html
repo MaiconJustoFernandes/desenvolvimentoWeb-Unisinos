@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde Fácil - Home</title>
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Importa o arquivo CSS para estilização -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Importa o jQuery para manipulação do DOM -->
+    <script src="../js/main.js" defer></script> <!-- Importa o arquivo JavaScript principal com o atributo 'defer' -->
+</head>
+<body>
+    <header>
+        <h1>Saúde Fácil</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="artigos.html">Artigos</a></li>
+                <li><a href="apoio-emocional.html">Apoio Emocional</a></li>
+                <li><a href="planejamento.html">Planejamento</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="carrossel">
+                <!-- Carrossel de imagens com títulos e descrições -->
+                <div class="carrossel-item active">
+                    <img src="../assets/images/saude1.jpg" alt="Saúde">
+                    <div class="carrossel-caption">
+                        <h2>Cuide da sua Saúde</h2>
+                        <p>Encontre dicas e recursos para uma vida mais saudável.</p>
+                    </div>
+                </div>
+                <div class="carrossel-item">
+                    <img src="../assets/images/saude2.jpg" alt="Bem-Estar">
+                    <div class="carrossel-caption">
+                        <h2>Bem-Estar</h2>
+                        <p>Explore técnicas para melhorar seu bem-estar emocional.</p>
+                    </div>
+                </div>
+                <div class="carrossel-item">
+                    <img src="../assets/images/saude3.jpg" alt="Planejamento de Saúde">
+                    <div class="carrossel-caption">
+                        <h2>Planejamento de Saúde</h2>
+                        <p>Defina metas e acompanhe seu progresso de forma interativa.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Controles do carrossel -->
+            <div class="carrossel-controls">
+                <button id="prev">Anterior</button>
+                <button id="next">Próximo</button>
+            </div>
+        </section>
+        <!-- Seção de destaques -->
+        <section class="highlights">
+            <div class="highlight">
+                <h3>Artigos Recentes</h3>
+                <p>Leia nossos artigos sobre saúde e bem-estar.</p>
+                <a href="artigos.html" class="btn">Ver Artigos</a>
+            </div>
+            <div class="highlight">
+                <h3>Apoio Emocional</h3>
+                <p>Encontre suporte emocional com nossos recursos especializados.</p>
+                <a href="apoio-emocional.html" class="btn">Ver Recursos</a>
+            </div>
+            <div class="highlight">
+                <h3>Planejamento de Saúde</h3>
+                <p>Planeje e monitore sua saúde de forma fácil e interativa.</p>
+                <a href="planejamento.html" class="btn">Acessar Planejador</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Maicon Justo. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

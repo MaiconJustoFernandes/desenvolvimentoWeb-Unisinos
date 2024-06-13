@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde Fácil - Planejamento de Saúde</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Saúde Fácil</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="artigos.html">Artigos</a></li>
+                <li><a href="apoio-emocional.html">Apoio Emocional</a></li>
+                <li><a href="planejamento.html">Planejamento</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="planner">
+            <h2>Planejamento de Saúde Pessoal</h2>
+            <form id="health-planner">
+                <div class="form-group">
+                    <label for="goal">Meta de Saúde:</label>
+                    <input type="text" id="goal" required>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duração (dias):</label>
+                    <input type="number" id="duration" required>
+                </div>
+                <div class="form-group">
+                    <label for="steps">Passos para Alcançar:</label>
+                    <textarea id="steps" required></textarea>
+                </div>
+                <button type="submit">Salvar Planejamento</button>
+            </form>
+            <div id="plan-summary" style="display: none;">
+                <h3>Resumo do Planejamento:</h3>
+                <p><strong>Meta:</strong> <span id="summary-goal"></span></p>
+                <p><strong>Duração:</strong> <span id="summary-duration"></span> dias</p>
+                <p><strong>Passos:</strong></p>
+                <p id="summary-steps"></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Maicon Justo. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

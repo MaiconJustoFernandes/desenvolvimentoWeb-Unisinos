@@ -1,0 +1,341 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura da viewport */
+}
+
+/* Cabeçalho e Navegação */
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilo da seção Hero */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.carrossel {
+    display: flex;
+    width: 100%;
+}
+
+.carrossel-item {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+}
+
+.carrossel-item img {
+    width: 100%;
+    height: auto;
+}
+
+.carrossel-item {
+    display: none; /* Inicialmente, todos os itens estão ocultos */
+}
+
+.carrossel-item.active {
+    display: block; /* Apenas o item ativo será exibido */
+}
+
+.carrossel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+}
+
+.carrossel-controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.carrossel-controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.carrossel-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Destaques */
+.highlights {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: #fff;
+    position: relative;
+    flex-wrap: wrap; /* Permite que os destaques se ajustem à largura da tela */
+    align-items: stretch; /* Faz com que todos os destaques tenham a mesma altura */
+}
+
+.highlight {
+    flex: 1;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    min-height: 100px; /* Altura mínima dos destaques */
+}
+
+.highlight h3 {
+    margin-bottom: 1rem;
+}
+
+.highlight .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.highlight .btn:hover {
+    background-color: #45a049;
+}
+
+/* Rodapé */
+footer {
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+html {
+    height: 100%; /* Define a altura do documento HTML */
+    margin: 0;
+}
+
+main {
+    flex: 1; /* Ocupa o espaço restante na tela, após header e footer */
+}
+
+/* ------------------------------------- Estilos das paginas -------------------------------------*/
+/* Estilo para a página de artigos */
+.articles {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.articles h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.search {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#search {
+    padding: 0.5rem;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.article-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+article {
+    background-color: #f4f4f4;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 45%;
+}
+
+article h3 {
+    margin-bottom: 1rem;
+}
+
+article p {
+    color: #666;
+}
+
+/* Estilo para a página de apoio emocional */
+.support {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.support h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.resource-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resource {
+    margin: 1rem 0;
+    padding: 1rem;
+    width: 80%;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.resource h3 {
+    margin-bottom: 1rem;
+}
+
+/* Estilo para a página de planejamento de saúde */
+.planner {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.planner h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#plan-summary {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* Estilo para a página de contato */
+.contact {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#contact-summary {
+    margin-top: 2rem;
+    text-align: center;
+}
