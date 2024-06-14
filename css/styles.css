@@ -13,7 +13,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura da viewport */
+    min-height: 100vh;
 }
 
 /* Cabeçalho e Navegação */
@@ -62,11 +62,11 @@ nav ul li a {
 }
 
 .carrossel-item {
-    display: none; /* Inicialmente, todos os itens estão ocultos */
+    display: none;
 }
 
 .carrossel-item.active {
-    display: block; /* Apenas o item ativo será exibido */
+    display: block;
 }
 
 .carrossel-caption {
@@ -107,8 +107,8 @@ nav ul li a {
     padding: 2rem;
     background-color: #fff;
     position: relative;
-    flex-wrap: wrap; /* Permite que os destaques se ajustem à largura da tela */
-    align-items: stretch; /* Faz com que todos os destaques tenham a mesma altura */
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 
 .highlight {
@@ -117,7 +117,7 @@ nav ul li a {
     padding: 1rem;
     background-color: #f4f4f4;
     border-radius: 8px;
-    min-height: 100px; /* Altura mínima dos destaques */
+    min-height: 100px;
 }
 
 .highlight h3 {
@@ -148,15 +148,15 @@ footer {
 }
 
 html {
-    height: 100%; /* Define a altura do documento HTML */
+    height: 100%;
     margin: 0;
 }
 
 main {
-    flex: 1; /* Ocupa o espaço restante na tela, após header e footer */
+    flex: 1;
 }
 
-/* ------------------------------------- Estilos das paginas -------------------------------------*/
+/* ------------------------------------- Estilo das paginas -------------------------------------*/
 /* Estilo para a página de artigos */
 .articles {
     padding: 2rem;
