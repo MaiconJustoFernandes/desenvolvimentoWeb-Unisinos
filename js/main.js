@@ -1,92 +1,84 @@
 $(document).ready(function() {
     // Função do Carrossel
     let currentIndex = 0;
-    const items = document.querySelectorAll('.carrossel-item');
+    const items = $('.carrossel-item');
     const itemCount = items.length;
     const intervalTime = 5000; // Tempo em milissegundos (5 segundos)
+    let carouselInterval;
 
     function updateCarousel() {
-        items.forEach((item, index) => {
+        items.each(function(index) {
             if(index === currentIndex) {
-                $(item).fadeIn(500);
+                $(this).fadeIn(500);
             } else {
-                $(item).fadeOut(500);
+                $(this).fadeOut(500);
             }
         });
     }
 
-    document.getElementById('next').addEventListener('click', function() {
+    function startCarousel() {
+        if (carouselInterval) clearInterval(carouselInterval);
+        carouselInterval = setInterval(function() {
+            currentIndex = (currentIndex + 1) % itemCount;
+            updateCarousel();
+        }, intervalTime);
+    }
+
+    $('#next').click(function() {
         currentIndex = (currentIndex + 1) % itemCount;
         updateCarousel();
     });
 
-    document.getElementById('prev').addEventListener('click', function() {
+    $('#prev').click(function() {
         currentIndex = (currentIndex - 1 + itemCount) % itemCount;
         updateCarousel();
     });
 
-    let carouselInterval = setInterval(function() {
-        currentIndex = (currentIndex + 1) % itemCount;
-        updateCarousel();
-    }, intervalTime);
-
-    document.querySelectorAll('.carrossel-controls button').forEach(button => {
-        button.addEventListener('mouseenter', function() {
-            clearInterval(carouselInterval);
-        });
-        button.addEventListener('mouseleave', function() {
-            carouselInterval = setInterval(function() {
-                currentIndex = (currentIndex + 1) % itemCount;
-                updateCarousel();
-            }, intervalTime);
-        });
+    $('.carrossel-controls button').hover(function() {
+        clearInterval(carouselInterval);
+    }, function() {
+        startCarousel();
     });
 
-    updateCarousel();
+    startCarousel(); // Inicia o carrossel automaticamente
 
     // Pesquisa e filtro de página de artigos
-    document.getElementById('search').addEventListener('keyup', function() {
-        const searchTerm = this.value.toLowerCase();
-        document.querySelectorAll('.article-list article').forEach(function(article) {
-            const articleText = article.textContent.toLowerCase();
-            if (articleText.includes(searchTerm)) {
-                $(article).show();
-            } else {
-                $(article).hide();
-            }
+    $('#search').keyup(function() {
+        const searchTerm = $(this).val().toLowerCase();
+        $('.article-list article').each(function() {
+            const articleText = $(this).text().toLowerCase();
+            $(this).toggle(articleText.includes(searchTerm));
         });
     });
 
     // Função de planejamento de saúde
-    document.getElementById('health-planner').addEventListener('submit', function(e) {
+    $('#health-planner').submit(function(e) {
         e.preventDefault();
-        const goal = document.getElementById('goal').value;
-        const duration = document.getElementById('duration').value;
-        const steps = document.getElementById('steps').value;
+        const goal = $('#goal').val();
+        const duration = $('#duration').val();
+        const steps = $('#steps').val();
         localStorage.setItem('healthGoal', goal);
         localStorage.setItem('healthDuration', duration);
         localStorage.setItem('healthSteps', steps);
         alert('Planejamento salvo com sucesso!');
-        this.reset();
+        $(this).trigger('reset');
     });
 
-    document.getElementById('view-goal-btn').addEventListener('click', function() {
-        document.getElementById('popup-goal').textContent = 'Meta: ' + localStorage.getItem('healthGoal');
-        document.getElementById('popup-duration').textContent = 'Duração: ' + localStorage.getItem('healthDuration') + ' dias';
-        document.getElementById('popup-steps').textContent = 'Passos: ' + localStorage.getItem('healthSteps');
+    $('#view-goal-btn').click(function() {
+        $('#popup-goal').text('Meta: ' + localStorage.getItem('healthGoal'));
+        $('#popup-duration').text('Duração: ' + localStorage.getItem('healthDuration') + ' dias');
+        $('#popup-steps').text('Passos: ' + localStorage.getItem('healthSteps'));
         $('#goal-popup').show();
     });
 
-    document.querySelectorAll('.close-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            $('#goal-popup').hide();
-        });
+    $('.close-btn').click(function() {
+        $('#goal-popup').hide();
     });
 
     // Função de formulário de contato
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
+    $('#contact-form').submit(function(event) {
         event.preventDefault();
         $('#contact-summary').show();
-        this.reset();
+        $(this).trigger('reset');
     });
 });
