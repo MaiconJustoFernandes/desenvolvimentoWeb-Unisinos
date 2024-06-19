@@ -38,6 +38,7 @@
                     <textarea id="steps" required></textarea>
                 </div>
                 <button type="submit">Salvar Planejamento</button>
+                <button id="view-goal-btn">Visualize sua Meta</button>
             </form>
             <div id="plan-summary" style="display: none;">
                 <h3>Resumo do Planejamento:</h3>
@@ -48,6 +49,15 @@
             </div>
         </section>
     </main>
+    <div id="goal-popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h3>Meta de Saúde</h3>
+            <p id="popup-goal"></p>
+            <p id="popup-duration"></p>
+            <p id="popup-steps"></p>
+        </div>
+    </div>
     <footer>
         <p>&copy; 2024 Maicon Justo. Todos os direitos reservados.</p>
     </footer>

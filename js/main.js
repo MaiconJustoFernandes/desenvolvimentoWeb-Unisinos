@@ -1,83 +1,92 @@
 $(document).ready(function() {
+    // Função do Carrossel
     let currentIndex = 0;
-    const items = $('.carrossel-item');
+    const items = document.querySelectorAll('.carrossel-item');
     const itemCount = items.length;
     const intervalTime = 5000; // Tempo em milissegundos (5 segundos)
 
     function updateCarousel() {
-        items.fadeOut(500).eq(currentIndex).fadeIn(500); // Troca de imagens com efeito fade
+        items.forEach((item, index) => {
+            if(index === currentIndex) {
+                $(item).fadeIn(500);
+            } else {
+                $(item).fadeOut(500);
+            }
+        });
     }
 
-    $('#next').click(function() {
+    document.getElementById('next').addEventListener('click', function() {
         currentIndex = (currentIndex + 1) % itemCount;
         updateCarousel();
     });
 
-    $('#prev').click(function() {
+    document.getElementById('prev').addEventListener('click', function() {
         currentIndex = (currentIndex - 1 + itemCount) % itemCount;
         updateCarousel();
     });
 
-    // Troca de imagem a cada intervalo definido automatico
     let carouselInterval = setInterval(function() {
         currentIndex = (currentIndex + 1) % itemCount;
         updateCarousel();
     }, intervalTime);
 
-    // Parar o mouse sobre os botões de controle do carrossel, a execução sera interrompida
-    $('.carrossel-controls button').on('mouseenter', function() {
-        clearInterval(carouselInterval);
-    }).on('mouseleave', function() {
-        carouselInterval = setInterval(function() {
-            currentIndex = (currentIndex + 1) % itemCount;
-            updateCarousel();
-        }, intervalTime);
+    document.querySelectorAll('.carrossel-controls button').forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            clearInterval(carouselInterval);
+        });
+        button.addEventListener('mouseleave', function() {
+            carouselInterval = setInterval(function() {
+                currentIndex = (currentIndex + 1) % itemCount;
+                updateCarousel();
+            }, intervalTime);
+        });
     });
 
-    // Inicia o carrossel mostrando o primeiro item
     updateCarousel();
-});
 
-
-// Pesquisa e filtro de pagina artigos
-$(document).ready(function() {
-    $('#search').on('keyup', function() {
-        const searchTerm = $(this).val().toLowerCase();
-        $('.article-list article').each(function() {
-            const articleText = $(this).text().toLowerCase();
+    // Pesquisa e filtro de página de artigos
+    document.getElementById('search').addEventListener('keyup', function() {
+        const searchTerm = this.value.toLowerCase();
+        document.querySelectorAll('.article-list article').forEach(function(article) {
+            const articleText = article.textContent.toLowerCase();
             if (articleText.includes(searchTerm)) {
-                $(this).show();
+                $(article).show();
             } else {
-                $(this).hide();
+                $(article).hide();
             }
         });
     });
-});
 
-// Função de planejamento de saúde
-$(document).ready(function() {
-    $('#health-planner').on('submit', function(event) {
-        event.preventDefault();
-
-        const goal = $('#goal').val();
-        const duration = $('#duration').val();
-        const steps = $('#steps').val();
-
-        $('#summary-goal').text(goal);
-        $('#summary-duration').text(duration);
-        $('#summary-steps').text(steps);
-
-        $('#plan-summary').show();
-        $(this)[0].reset();
+    // Função de planejamento de saúde
+    document.getElementById('health-planner').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const goal = document.getElementById('goal').value;
+        const duration = document.getElementById('duration').value;
+        const steps = document.getElementById('steps').value;
+        localStorage.setItem('healthGoal', goal);
+        localStorage.setItem('healthDuration', duration);
+        localStorage.setItem('healthSteps', steps);
+        alert('Planejamento salvo com sucesso!');
+        this.reset();
     });
-});
 
-// Função de formulário de contato
-$(document).ready(function() {
-    $('#contact-form').on('submit', function(event) {
+    document.getElementById('view-goal-btn').addEventListener('click', function() {
+        document.getElementById('popup-goal').textContent = 'Meta: ' + localStorage.getItem('healthGoal');
+        document.getElementById('popup-duration').textContent = 'Duração: ' + localStorage.getItem('healthDuration') + ' dias';
+        document.getElementById('popup-steps').textContent = 'Passos: ' + localStorage.getItem('healthSteps');
+        $('#goal-popup').show();
+    });
+
+    document.querySelectorAll('.close-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            $('#goal-popup').hide();
+        });
+    });
+
+    // Função de formulário de contato
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
-
         $('#contact-summary').show();
-        $(this)[0].reset();
+        this.reset();
     });
 });
