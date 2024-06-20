@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apoio da Comunidade - Planejamento de Saúde</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/main.js" defer></script>
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Link para o arquivo de estilos CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Importa a biblioteca jQuery -->
+    <script src="../js/main.js" defer></script> <!-- Link para o arquivo JavaScript, com atributo defer para carregar após o HTML -->
 </head>
 <body>
     <header>
         <h1>Apoio da Comunidade</h1>
         <nav>
-            <ul>
+            <ul> <!-- Lista de links para navegação entre as páginas do site -->
                 <li><a href="index.html">Início</a></li>
                 <li><a href="artigos.html">Artigos</a></li>
                 <li><a href="apoio-emocional.html">Apoio Emocional</a></li>
@@ -26,40 +26,40 @@
             <h2>Planejamento de Saúde Pessoal</h2>
             <form id="health-planner">
                 <div class="form-group">
-                    <label for="goal">Meta de Saúde:</label>
-                    <input type="text" id="goal" required>
+                    <label for="goal">Meta de Saúde:</label> <!-- Campo para inserir a meta de saúde -->
+                    <input type="text" id="goal" required> <!-- Campo de texto obrigatório para a meta -->
                 </div>
                 <div class="form-group">
-                    <label for="duration">Duração (dias):</label>
-                    <input type="number" id="duration" required>
+                    <label for="duration">Duração (dias):</label> <!-- Campo para definir a duração da meta -->
+                    <input type="number" id="duration" required> <!-- Campo numérico obrigatório para a duração -->
                 </div>
                 <div class="form-group">
-                    <label for="steps">Passos para Alcançar:</label>
-                    <textarea id="steps" required></textarea>
+                    <label for="steps">Passos para Alcançar:</label> <!-- Campo para descrever os passos para alcançar a meta -->
+                    <textarea id="steps" required></textarea> <!-- Área de texto obrigatória para os passos -->
                 </div>
-                <button type="submit">Salvar Planejamento</button>
-                <button id="view-goal-btn">Visualize sua Meta</button>
+                <button type="submit">Salvar Planejamento</button> <!-- Botão para salvar o formulário -->
+                <button id="view-goal-btn">Visualize sua Meta</button> <!-- Botão para visualizar a meta -->
             </form>
             <div id="plan-summary" style="display: none;">
-                <h3>Resumo do Planejamento:</h3>
-                <p><strong>Meta:</strong> <span id="summary-goal"></span></p>
-                <p><strong>Duração:</strong> <span id="summary-duration"></span> dias</p>
+                <h3>Resumo do Planejamento:</h3> <!-- Título do resumo do planejamento -->
+                <p><strong>Meta:</strong> <span id="summary-goal"></span></p> <!-- Exibe a meta definida -->
+                <p><strong>Duração:</strong> <span id="summary-duration"></span> dias</p> <!-- Exibe a duração definida -->
                 <p><strong>Passos:</strong></p>
-                <p id="summary-steps"></p>
+                <p id="summary-steps"></p> <!-- Exibe os passos definidos -->
             </div>
         </section>
     </main>
     <div id="goal-popup" class="popup" style="display: none;">
         <div class="popup-content">
-            <span class="close-btn">&times;</span>
-            <h3>Meta de Saúde</h3>
-            <p id="popup-goal"></p>
-            <p id="popup-duration"></p>
-            <p id="popup-steps"></p>
+            <span class="close-btn">&times;</span> <!-- Botão para fechar o popup -->
+            <h3>Meta de Saúde</h3> <!-- Título do popup -->
+            <p id="popup-goal"></p> <!-- Exibe a meta no popup -->
+            <p id="popup-duration"></p> <!-- Exibe a duração no popup -->
+            <p id="popup-steps"></p> <!-- Exibe os passos no popup -->
         </div>
     </div>
     <footer>
-        <p>&copy; 2024 Maicon Justo. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Maicon Justo. Todos os direitos reservados.</p> <!-- Informações de direitos autorais no rodapé -->
     </footer>
 </body>
 </html>
